@@ -255,6 +255,7 @@
         }, this);
 
         scores.push(_score);
+        postMessageFn();
       };
     };
 
@@ -298,16 +299,8 @@
       })
     }
 
-    wx.miniProgram.postMessage({
-        data: {
-          game: {
-            from: 123,
-            scores: [1,23,4],
-          }
-        }
-      })
 
-      postMessageFn()
+    postMessageFn()
   </script>
 </body>
 
