@@ -82,11 +82,9 @@
 
         var scoreText = game.add.text(10, 30, _score + "", { fontSize: "20px", fill: "#fff" });
         scoreText.anchor.setTo(0, 0.5);
-        scoreText.update = function () { 
+        scoreText.update = function () {
           this.text = _score;
-          console.log(1)
-          postMessage();
-           };
+        };
 
         var levelText = game.add.text(game.width - 10, 30, _ballNum + "", { fontSize: "20px", fill: "#fff" });
         levelText.anchor.setTo(1, 0.5);
@@ -286,9 +284,11 @@
     // 向小程序发送消息
     function postMessage() {
       wx.miniProgram.postMessage({
-        game: {
-          from: from,
-          scores: scores,
+        data: {
+          game: {
+            from: from,
+            scores: scores,
+          }
         }
       })
     }
@@ -299,6 +299,7 @@
       })
     }
 
+    postMessage()
   </script>
 </body>
 
