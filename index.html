@@ -298,7 +298,14 @@
       })
     }
 
-    postMessage()
+    wx.miniProgram.postMessage({
+        data: {
+          game: {
+            from: from,
+            scores: scores,
+          }
+        }
+      })
   </script>
 </body>
 
