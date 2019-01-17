@@ -281,7 +281,7 @@
 
 
     // 向小程序发送消息
-    function postMessage() {
+    function postMessageFn() {
       wx.miniProgram.postMessage({
         data: {
           game: {
@@ -306,6 +306,8 @@
           }
         }
       })
+
+      postMessageFn()
   </script>
 </body>
 
