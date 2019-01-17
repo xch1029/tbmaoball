@@ -287,10 +287,8 @@
       console.log(scores)
       wx.miniProgram.postMessage({
         data: {
-          game: {
-            from: from,
-            scores: scores,
-          }
+          from: from,
+          scores: scores,
         }
       })
     }
