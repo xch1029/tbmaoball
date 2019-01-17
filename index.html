@@ -82,7 +82,11 @@
 
         var scoreText = game.add.text(10, 30, _score + "", { fontSize: "20px", fill: "#fff" });
         scoreText.anchor.setTo(0, 0.5);
-        scoreText.update = function () { this.text = _score; };
+        scoreText.update = function () { 
+          this.text = _score;
+          console.log(1)
+          postMessage();
+           };
 
         var levelText = game.add.text(game.width - 10, 30, _ballNum + "", { fontSize: "20px", fill: "#fff" });
         levelText.anchor.setTo(1, 0.5);
