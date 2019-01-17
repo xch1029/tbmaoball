@@ -283,8 +283,10 @@
 
     // 向小程序发送消息
     function postMessageFn() {
+      console.log(from)
+      console.log(scores)
       wx.miniProgram.postMessage({
-        game: {
+        data: {
           from: from,
           scores: scores,
         }
