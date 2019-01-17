@@ -251,6 +251,9 @@
         btn1.events.onInputDown.add(function () {
           game.state.start("main");
         }, this);
+
+        scores.push(_score);
+        postMessage()
       };
     };
 
@@ -263,7 +266,35 @@
 
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
   <script>
-    wx.miniProgram.postMessage({ data: 'foo' })
+
+    let scores = [];
+
+
+    function getQuery(url, name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+      var r = url.substr(url.indexOf("\?") + 1).match(reg);
+      if (r != null) return unescape(r[2]); return null;
+    }
+    const from = getQuery(window.location.href, 'from');
+    console.log(from)
+
+
+    // 向小程序发送消息
+    function postMessage() {
+      wx.miniProgram.postMessage({
+        game: {
+          from: from,
+          scores: scores,
+        }
+      })
+    }
+    // 返回小程序
+    function navigateBack() {
+      wx.miniProgram.navigateBack({
+        delta: 1
+      })
+    }
+
   </script>
 </body>
 
